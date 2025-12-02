@@ -9,18 +9,39 @@ start:
     mov al, ''
     int 0x10
 
-start2:
-     mov ah, 0x00
-     int 0x16
-     cmp al, 'H'
-     je start2
-     mov ah, 0x0E
-     mov al, 'O'
-     int 0x10
-     mov al, 'S'
-     int 0x10
-     jmp start2
+HYAZ:
+   mov ah, 0x00
+   int 0x16
+   cmp al, 'H'
+   je HYAZ
+   mov ah, 0x0E
+   mov al, 'O'
+   int 0x10
+   mov al, 'S'
+   int 0x10
+   jmp HYAZ
 
+BYAZ:
+   mov ah, 0x00
+   int 0x16
+   cmp al, 'B'
+   je BYAZ
+
+   mov ax, 0x0800
+   mov es, ax
+   xor bx, bx
+
+   mov ah, 02h
+   mov al, 1
+   mov ch, 0
+   mov cl, 10
+   mov dh, 0
+   mov dl, 80h
+   int 13h
+
+   jmp far 0x0800:0x0000
+
+   jmp BYAZ
 
 hang:
    jmp hang
