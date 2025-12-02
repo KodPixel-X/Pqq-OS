@@ -9,18 +9,6 @@ start:
     mov al, ''
     int 0x10
 
-HYAZ:
-   mov ah, 0x00
-   int 0x16
-   cmp al, 'H'
-   je HYAZ
-   mov ah, 0x0E
-   mov al, 'O'
-   int 0x10
-   mov al, 'S'
-   int 0x10
-   jmp HYAZ
-
 BYAZ:
    mov ah, 0x00
    int 0x16
@@ -48,3 +36,4 @@ hang:
 
 times 510-($-$$) db 0
 dw 0x55AA
+
