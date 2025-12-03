@@ -22,7 +22,7 @@ BYAZ:
    mov ah, 02h
    mov al, 1
    mov ch, 0
-   mov cl, 10
+   mov cl, 1
    mov dh, 0
    mov dl, 80h
    int 13h
@@ -36,4 +36,5 @@ hang:
 
 times 510-($-$$) db 0
 dw 0x55AA
+
 
